@@ -1,0 +1,144 @@
+/* =============================================================================
+   Memory Game — Design Tokens (Tailwind CSS v4)
+   ============================================================================= */
+
+@import "tailwindcss";
+
+@theme {
+  /* ---------- Colors ---------- */
+  --color-white: #ffffff;
+  --color-black: #000000;
+
+  --color-grey-50: #fcfcfc;
+  --color-grey-100: #f2f2f2;
+
+  --color-blue-100: #dfe7ec;
+  --color-blue-300: #bcced9;
+  --color-blue-350: #6395b8;
+  --color-blue-400: #7191a5;
+  --color-blue-800: #304859;
+  --color-blue-950: #152938;
+
+  --color-orange-300: #ffb84a;
+  --color-orange-400: #fda214;
+
+  /* ---------- Spacing ---------- */
+  --spacing-0: 0px;
+  --spacing-100: 8px;
+  --spacing-200: 16px;
+  --spacing-300: 24px;
+  --spacing-400: 32px;
+  --spacing-500: 40px;
+  --spacing-600: 48px;
+  --spacing-1000: 80px;
+
+  /* ---------- Typography ---------- */
+  --font-display: "Atkinson Hyperlegible", sans-serif;
+}
+
+/* -----------------------------------------------------------------------------
+   Text Presets — déclarés en @utility (Tailwind v4)
+----------------------------------------------------------------------------- */
+@utility text-preset-1 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 56px;
+  line-height: 1.25;
+  letter-spacing: 0;
+}
+
+@utility text-preset-2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 1.25;
+  letter-spacing: 0;
+}
+
+@utility text-preset-3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 44px;
+  line-height: 1.25;
+  letter-spacing: 0;
+}
+
+@utility text-preset-4 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 1.25;
+  letter-spacing: 0;
+}
+
+@utility text-preset-5 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 1.25;
+  letter-spacing: 0;
+}
+
+@utility text-preset-6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 1.25;
+  letter-spacing: 0;
+}
+
+@utility text-preset-7 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 1.25;
+  letter-spacing: 0;
+}
+
+@utility text-preset-8 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.25;
+  letter-spacing: 0;
+}
+
+@utility text-preset-9 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.25;
+  letter-spacing: 0;
+}
+
+@utility text-preset-10 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.25;
+  letter-spacing: 0;
+}
+
+@utility text-preset-11 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 1.25;
+  letter-spacing: 0;
+}
+
+@utility text-preset-12 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.25;
+  letter-spacing: 0;
+}
+
+@utility text-preset-13 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 1.25;
+  letter-spacing: 5px;
+}
