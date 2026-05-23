@@ -96,7 +96,7 @@ export const useGameStore = create<GameStore>((set, get) => ({
         set((state) => ({
           flippedIds: [],
           currentPlayerIndex:
-            (state.currentPlayerIndex + 1) % get().gameConfig?.players!,
+            (state.currentPlayerIndex + 1) % (get().gameConfig?.players ?? 1),
         }));
       }, FLIP_BACK_DELAY_MS);
     }
