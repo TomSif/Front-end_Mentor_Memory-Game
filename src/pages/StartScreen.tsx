@@ -9,6 +9,7 @@ const StartScreen = () => {
   const [gridSize, setGridSize] = useState<GameConfig["gridSize"]>(4);
   const setConfig = useGameStore((state) => state.setConfig);
   const navigate = useNavigate();
+
   return (
     <div className="flex min-h-dvh flex-col items-center justify-center gap-12 bg-blue-950 px-6 text-center">
       <h1 className="text-preset-5 text-grey-50">memory</h1>
@@ -28,7 +29,7 @@ const StartScreen = () => {
                 className="peer hidden"
               />
 
-              <span className="block w-full rounded-full bg-blue-300 px-4 py-2 text-center transition hover:bg-blue-350 peer-checked:bg-blue-800 peer-checked:text-white">
+              <span className="hover:bg-blue-350 block w-full rounded-full bg-blue-300 px-4 py-2 text-center transition peer-checked:bg-blue-800 peer-checked:text-white">
                 Numbers
               </span>
             </label>
@@ -43,7 +44,7 @@ const StartScreen = () => {
                 }
                 className="peer hidden"
               />
-              <span className="block w-full rounded-full bg-blue-300 px-4 py-2 text-center transition hover:bg-blue-350 peer-checked:bg-blue-800 peer-checked:text-white">
+              <span className="hover:bg-blue-350 block w-full rounded-full bg-blue-300 px-4 py-2 text-center transition peer-checked:bg-blue-800 peer-checked:text-white">
                 Icons
               </span>
             </label>
@@ -61,7 +62,7 @@ const StartScreen = () => {
                 onChange={() => setPlayers(1)}
                 className="peer hidden"
               />
-              <span className="block w-full rounded-full bg-blue-300 px-4 py-2 text-center transition hover:bg-blue-350 peer-checked:bg-blue-800 peer-checked:text-white">
+              <span className="hover:bg-blue-350 block w-full rounded-full bg-blue-300 px-4 py-2 text-center transition peer-checked:bg-blue-800 peer-checked:text-white">
                 1
               </span>
             </label>
@@ -75,7 +76,7 @@ const StartScreen = () => {
                 onChange={() => setPlayers(2)}
                 className="peer hidden"
               />
-              <span className="block w-full rounded-full bg-blue-300 px-4 py-2 text-center transition hover:bg-blue-350 peer-checked:bg-blue-800 peer-checked:text-white">
+              <span className="hover:bg-blue-350 block w-full rounded-full bg-blue-300 px-4 py-2 text-center transition peer-checked:bg-blue-800 peer-checked:text-white">
                 2
               </span>
             </label>
@@ -89,7 +90,7 @@ const StartScreen = () => {
                 onChange={() => setPlayers(3)}
                 className="peer hidden"
               />
-              <span className="block w-full rounded-full bg-blue-300 px-4 py-2 text-center transition hover:bg-blue-350 peer-checked:bg-blue-800 peer-checked:text-white">
+              <span className="hover:bg-blue-350 block w-full rounded-full bg-blue-300 px-4 py-2 text-center transition peer-checked:bg-blue-800 peer-checked:text-white">
                 3
               </span>
             </label>
@@ -103,7 +104,7 @@ const StartScreen = () => {
                 onChange={() => setPlayers(4)}
                 className="peer hidden"
               />
-              <span className="block w-full rounded-full bg-blue-300 px-4 py-2 text-center transition hover:bg-blue-350 peer-checked:bg-blue-800 peer-checked:text-white">
+              <span className="hover:bg-blue-350 block w-full rounded-full bg-blue-300 px-4 py-2 text-center transition peer-checked:bg-blue-800 peer-checked:text-white">
                 4
               </span>
             </label>
@@ -121,7 +122,7 @@ const StartScreen = () => {
                 onChange={() => setGridSize(4)}
                 className="peer hidden"
               />
-              <span className="block w-full rounded-full bg-blue-300 px-4 py-2 text-center transition hover:bg-blue-350 peer-checked:bg-blue-800 peer-checked:text-white">
+              <span className="hover:bg-blue-350 block w-full rounded-full bg-blue-300 px-4 py-2 text-center transition peer-checked:bg-blue-800 peer-checked:text-white">
                 4x4
               </span>
             </label>
@@ -135,7 +136,7 @@ const StartScreen = () => {
                 onChange={() => setGridSize(6)}
                 className="peer hidden"
               />
-              <span className="block w-full rounded-full bg-blue-300 px-4 py-2 text-center transition hover:bg-blue-350 peer-checked:bg-blue-800 peer-checked:text-white">
+              <span className="hover:bg-blue-350 block w-full rounded-full bg-blue-300 px-4 py-2 text-center transition peer-checked:bg-blue-800 peer-checked:text-white">
                 6x6
               </span>
             </label>
