@@ -24,7 +24,6 @@ const generateBoard = ({ theme: _theme, gridSize }: GenerateBoardProps) => {
   const tiles: Tile[] = shuffleValues.map((tile, index) => ({
     id: `tile-${index}`,
     value: tile,
-    isFlipped: false,
     isMatched: false,
   }));
   return tiles;

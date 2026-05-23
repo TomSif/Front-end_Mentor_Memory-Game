@@ -1,7 +1,6 @@
 export interface Tile {
   id: string;
   value: string | number;
-  isFlipped: boolean;
   isMatched: boolean;
 }
 
