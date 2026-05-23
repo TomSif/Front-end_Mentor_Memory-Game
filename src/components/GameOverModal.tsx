@@ -88,13 +88,13 @@ function GameOverModal({
           ) : (
             <ul className="flex w-full flex-col gap-2">
               {rankedPlayers &&
-                rankedPlayers.map((players, index) => {
+                rankedPlayers.map((players) => {
                   const isWinner = winners.some(
                     (w) => w.player === players.player,
                   );
                   return (
                     <li
-                      key={index}
+                      key={players.player}
                       className={cn(
                         "flex w-full items-center justify-between rounded-md bg-blue-100 px-4 py-3",
                         isWinner ? "bg-blue-950 text-white!" : "",
