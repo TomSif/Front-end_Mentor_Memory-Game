@@ -18,7 +18,6 @@ export interface GameStore {
   flipTile: (id: string) => void;
   checkMatch: () => void;
   tick: () => void;
-  startTimer: () => void;
   stopTimer: () => void;
 }
 
@@ -33,7 +32,6 @@ export const useGameStore = create<GameStore>((set, get) => ({
   tiles: [],
   gameConfig: null,
   tick: () => set((state) => ({ timeElapsed: state.timeElapsed + 1 })),
-  startTimer: () => set({ isRunning: true }),
   stopTimer: () => set({ isRunning: false }),
   setConfig: (config: GameConfig) => set({ gameConfig: config }),
   startGame: () => {
@@ -48,6 +46,7 @@ export const useGameStore = create<GameStore>((set, get) => ({
       moves: 0,
       flippedIds: [],
       currentPlayerIndex: 0,
+      isRunning: true,
     });
   },
   flipTile: (id: string) => {
