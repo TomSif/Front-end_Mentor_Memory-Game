@@ -13,14 +13,12 @@ const GameBoard = () => {
   const moves = useGameStore((state) => state.moves);
   const score = useGameStore((state) => state.scores);
   const tick = useGameStore((state) => state.tick);
-  const startTimer = useGameStore((state) => state.startTimer);
   const isRunning = useGameStore((state) => state.isRunning);
   const stopTimer = useGameStore((state) => state.stopTimer);
   const timeElapsed = useGameStore((state) => state.timeElapsed);
   const flipTile = useGameStore((state) => state.flipTile);
   const flippedIds = useGameStore((state) => state.flippedIds);
   const phase = useGameStore((state) => state.phase);
-  const onRestart = useGameStore((state) => state.startGame);
 
   const navigate = useNavigate();
   const minutes = Math.floor(timeElapsed / 60);
@@ -34,7 +32,6 @@ const GameBoard = () => {
 
   useEffect(() => {
     startGame();
-    startTimer();
   }, []);
 
   useEffect(() => {
@@ -141,17 +138,19 @@ const GameBoard = () => {
           </ul>
         )}
       </footer>
-      <GameOverModal
-        isOpen={isOpen}
-        onClose={() => setIsOpen(false)}
-        onRestart={onRestart}
-        onNewGame={() => navigate("/")}
-        moves={moves}
-        score={score}
-        minutes={minutes}
-        seconds={seconds}
-        rankedPlayers={rankedPlayers}
-      />
+      {phase === "game-over" && (
+        <GameOverModal
+          isOpen={isOpen}
+          onClose={() => setIsOpen(false)}
+          onRestart={startGame}
+          onNewGame={() => navigate("/")}
+          moves={moves}
+          score={score}
+          minutes={minutes}
+          seconds={seconds}
+          rankedPlayers={rankedPlayers}
+        />
+      )}
     </div>
   );
 };
