@@ -4,6 +4,7 @@ import { useGameStore } from "../store/gameStore";
 import { cn } from "../lib/cn";
 import GameOverModal from "../components/GameOverModal";
 import MenuModal from "../components/MenuModal";
+import { ICON_MAP } from "../lib/icon";
 
 const GameBoard = () => {
   const [isGameOverOpen, setIsGameOverOpen] = useState(false);
@@ -77,6 +78,7 @@ const GameBoard = () => {
         >
           {tiles &&
             tiles.map((tile) => {
+              const Icon = ICON_MAP[tile.value as string];
               return (
                 <li
                   className={cn(
@@ -95,7 +97,7 @@ const GameBoard = () => {
                         tile.isMatched ? "bg-orange-400" : "bg-blue-300",
                       )}
                     >
-                      {tile.value}
+                      {typeof tile.value === "number" ? tile.value : <Icon />}
                     </span>
                   ) : (
                     <span className="h-full w-full rounded-full bg-blue-800"></span>

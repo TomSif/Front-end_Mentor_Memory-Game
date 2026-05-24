@@ -1,7 +1,8 @@
 import { Tile } from "../types/game";
+import { ICON_NAMES } from "./icon";
 
 export interface GenerateBoardProps {
-  theme: number | string;
+  theme: "numbers" | "icons";
   gridSize: 4 | 6;
 }
 
@@ -14,11 +15,12 @@ const shuffle = <T>(arr: T[]): T[] => {
   return result;
 };
 
-const generateBoard = ({ theme: _theme, gridSize }: GenerateBoardProps) => {
-  const arr = Array.from(
-    { length: (gridSize * gridSize) / 2 },
-    (_, i) => i + 1,
-  );
+const generateBoard = ({ theme, gridSize }: GenerateBoardProps) => {
+  const n = (gridSize * gridSize) / 2;
+  const arr =
+    theme === "numbers"
+      ? Array.from({ length: n }, (_, i) => i + 1)
+      : ICON_NAMES.slice(0, n);
   const newArr = [...arr, ...arr];
   const shuffleValues = shuffle(newArr);
   const tiles: Tile[] = shuffleValues.map((tile, index) => ({
