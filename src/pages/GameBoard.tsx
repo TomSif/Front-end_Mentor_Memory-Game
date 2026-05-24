@@ -13,6 +13,7 @@ const GameBoard = () => {
   const startGame = useGameStore((state) => state.startGame);
   const stopTimer = useGameStore((state) => state.stopTimer);
   const resumeTimer = useGameStore((state) => state.resumeTimer);
+  const resetGame = useGameStore((state) => state.resetGame);
   const tick = useGameStore((state) => state.tick);
   const flipTile = useGameStore((state) => state.flipTile);
   const config = useGameStore((state) => state.gameConfig);
@@ -36,7 +37,11 @@ const GameBoard = () => {
   const rankedPlayers = unRankedScore.sort((a, b) => b.score - a.score);
 
   useEffect(() => {
-    startGame();
+    if (phase === "playing" && tiles.length > 0) {
+      resumeTimer();
+    } else {
+      startGame();
+    }
   }, []);
 
   useEffect(() => {
@@ -68,7 +73,7 @@ const GameBoard = () => {
         </button>
       </header>
 
-      <main className="">
+      <main className="w-full">
         <ul
           className={cn(
             "mx-auto grid w-full justify-items-center",
@@ -81,12 +86,7 @@ const GameBoard = () => {
               const Icon = ICON_MAP[tile.value as string];
               return (
                 <li
-                  className={cn(
-                    "flex cursor-pointer rounded-full",
-                    config?.gridSize === 4 && "h-18 w-18",
-                    config?.gridSize === 6 &&
-                      "h-11.5 w-11.5 xl:h-20.5 xl:w-20.5",
-                  )}
+                  className="flex aspect-square h-full w-full cursor-pointer rounded-full"
                   key={tile.id}
                   onClick={() => flipTile(tile.id)}
                 >
@@ -97,7 +97,11 @@ const GameBoard = () => {
                         tile.isMatched ? "bg-orange-400" : "bg-blue-300",
                       )}
                     >
-                      {typeof tile.value === "number" ? tile.value : <Icon />}
+                      {typeof tile.value === "number" ? (
+                        tile.value
+                      ) : (
+                        <Icon size={48} strokeWidth={2} />
+                      )}
                     </span>
                   ) : (
                     <span className="h-full w-full rounded-full bg-blue-800"></span>
@@ -107,7 +111,7 @@ const GameBoard = () => {
             })}
         </ul>
       </main>
-      <footer className="mt-34.5 w-full">
+      <footer className="w-full">
         {config?.players === 1 ? (
           <ul className="mt-27 flex w-full gap-6">
             <li className="flex flex-1 flex-col justify-center rounded-lg bg-blue-100 py-3 text-center md:flex-row md:items-center md:justify-around">
@@ -167,14 +171,20 @@ const GameBoard = () => {
           setIsMenuOpen(false);
           startGame();
         }}
-        onNewGame={() => navigate("/")}
+        onNewGame={() => {
+          resetGame();
+          navigate("/");
+        }}
       />
       {phase === "game-over" && (
         <GameOverModal
           isOpen={isGameOverOpen}
           onClose={() => setIsGameOverOpen(false)}
           onRestart={() => startGame()}
-          onNewGame={() => navigate("/")}
+          onNewGame={() => {
+            resetGame();
+            navigate("/");
+          }}
           moves={moves}
           score={score}
           minutes={minutes}

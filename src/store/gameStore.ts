@@ -1,4 +1,5 @@
-import { create } from "zustand";
+import { create, StateCreator } from "zustand";
+import { persist } from "zustand/middleware";
 import { Tile, GameConfig } from "../types/game";
 import generateBoard from "../lib/generateBoard";
 const FLIP_BACK_DELAY_MS = 1000;
@@ -20,21 +21,23 @@ export interface GameStore {
   tick: () => void;
   stopTimer: () => void;
   resumeTimer: () => void;
+  resetGame: () => void;
 }
 
-export const useGameStore = create<GameStore>((set, get) => ({
+const storeConfig: StateCreator<GameStore> = (set, get) => ({
   isRunning: false,
   moves: 0,
   scores: [],
   timeElapsed: 0,
   currentPlayerIndex: 0,
-  phase: "setup",
+  phase: "setup" as const,
   flippedIds: [],
   tiles: [],
   gameConfig: null,
   tick: () => set((state) => ({ timeElapsed: state.timeElapsed + 1 })),
   stopTimer: () => set({ isRunning: false }),
   resumeTimer: () => set({ isRunning: true }),
+  resetGame: () => set({ phase: "setup", tiles: [] }),
   setConfig: (config: GameConfig) => set({ gameConfig: config }),
   startGame: () => {
     const config = get().gameConfig;
@@ -48,12 +51,12 @@ export const useGameStore = create<GameStore>((set, get) => ({
       moves: 0,
       flippedIds: [],
       currentPlayerIndex: 0,
-      isRunning: true,
     });
   },
   flipTile: (id: string) => {
     const tileClicked = get().tiles.find((tile) => tile.id === id);
     if (tileClicked?.isMatched) return;
+    if (!get().isRunning) set({ isRunning: true });
     if (get().flippedIds.length >= 2) return;
     if (get().flippedIds.includes(id)) return;
     set((state) => ({
@@ -102,4 +105,11 @@ export const useGameStore = create<GameStore>((set, get) => ({
       }, FLIP_BACK_DELAY_MS);
     }
   },
-}));
+});
+
+export const useGameStore = create<GameStore>()(
+  persist(storeConfig, {
+    name: "game-store",
+    partialize: (state) => ({ ...state, isRunning: false }),
+  }),
+);
