@@ -19,6 +19,7 @@ export interface GameStore {
   checkMatch: () => void;
   tick: () => void;
   stopTimer: () => void;
+  resumeTimer: () => void;
 }
 
 export const useGameStore = create<GameStore>((set, get) => ({
@@ -33,6 +34,7 @@ export const useGameStore = create<GameStore>((set, get) => ({
   gameConfig: null,
   tick: () => set((state) => ({ timeElapsed: state.timeElapsed + 1 })),
   stopTimer: () => set({ isRunning: false }),
+  resumeTimer: () => set({ isRunning: true }),
   setConfig: (config: GameConfig) => set({ gameConfig: config }),
   startGame: () => {
     const config = get().gameConfig;
