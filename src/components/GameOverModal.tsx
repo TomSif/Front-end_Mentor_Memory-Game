@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { cn } from "../lib/cn";
 
-type GameOVerModalProps = {
+type GameOverModalProps = {
   isOpen: boolean;
   score: number[];
   moves: number;
@@ -23,7 +23,7 @@ function GameOverModal({
   moves,
   score,
   rankedPlayers,
-}: GameOVerModalProps) {
+}: GameOverModalProps) {
   const dialogRef = useRef<HTMLDialogElement>(null);
   const winners = rankedPlayers.filter(
     (winner) => winner.score === rankedPlayers[0].score,
