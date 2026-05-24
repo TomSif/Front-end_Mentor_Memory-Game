@@ -19,6 +19,7 @@ const GameBoard = () => {
   const flipTile = useGameStore((state) => state.flipTile);
   const flippedIds = useGameStore((state) => state.flippedIds);
   const phase = useGameStore((state) => state.phase);
+  const currentPlayerIndex = useGameStore((state) => state.currentPlayerIndex);
 
   const navigate = useNavigate();
   const minutes = Math.floor(timeElapsed / 60);
@@ -48,7 +49,7 @@ const GameBoard = () => {
   }, [phase]);
 
   return (
-    <div className="min-h-dvh bg-white p-6">
+    <div className="mx-auto min-h-dvh max-w-277 bg-white p-6">
       <header className="mb-20 flex items-center justify-between">
         <h1 className="text-preset-7 text-blue-950">memory</h1>
         <button
@@ -101,7 +102,7 @@ const GameBoard = () => {
             })}
         </ul>
       </main>
-      <footer className="w-full">
+      <footer className="mt-34.5 w-full">
         {config?.players === 1 ? (
           <ul className="mt-27 flex w-full gap-6">
             <li className="flex flex-1 flex-col justify-center rounded-lg bg-blue-100 py-3 text-center md:flex-row md:items-center md:justify-around">
@@ -119,22 +120,35 @@ const GameBoard = () => {
           </ul>
         ) : (
           <ul className="flex gap-2">
-            <li className="flex flex-col md:flex-row">
-              <span>Player 1</span>
-              <span>{score[0]}</span>
-            </li>
-            <li className="flex flex-col md:flex-row">
-              <span>Player 2</span>
-              <span>{score[1]}</span>
-            </li>
-            <li className="flex flex-col md:flex-row">
-              <span>Player 3</span>
-              <span>{score[2]}</span>
-            </li>
-            <li className="flex flex-col md:flex-row">
-              <span>Player 4</span>
-              <span>{score[3]}</span>
-            </li>
+            {unRankedScore.map((player) => {
+              const isCurrentPlayer = player.player === currentPlayerIndex + 1;
+              return (
+                <li
+                  key={player.player}
+                  className={cn(
+                    "maw-w-64 flex flex-1 flex-col gap-2 rounded-md px-4 py-2",
+                    isCurrentPlayer ? "bg-orange-400" : "bg-blue-100",
+                  )}
+                >
+                  <span
+                    className={cn(
+                      "text-preset-11! text-center",
+                      isCurrentPlayer ? "text-white" : "text-blue-400",
+                    )}
+                  >
+                    Player {player.player}
+                  </span>
+                  <span
+                    className={cn(
+                      "text-preset-7! text-center",
+                      isCurrentPlayer ? "text-white" : "text-blue-800",
+                    )}
+                  >
+                    {player.score}
+                  </span>
+                </li>
+              );
+            })}
           </ul>
         )}
       </footer>
