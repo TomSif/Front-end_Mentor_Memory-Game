@@ -58,27 +58,50 @@ const GameBoard = () => {
   }, [phase]);
 
   return (
-    <div className="mx-auto min-h-dvh max-w-277 bg-white p-6">
+    <div className="mx-auto min-h-dvh max-w-277 bg-white p-6 md:p-10">
       <header className="mb-20 flex items-center justify-between">
-        <h1 className="text-preset-7 text-blue-950">memory</h1>
+        <h1 className="text-preset-7 md:text-preset-4 text-blue-950">memory</h1>
         <button
           onClick={() => {
             setIsMenuOpen(true);
             stopTimer();
           }}
           type="button"
-          className="text-preset-10 w-19.5 cursor-pointer rounded-full bg-orange-400 py-2 text-white transition hover:bg-orange-300"
+          className="text-preset-10 w-19.5 cursor-pointer rounded-full bg-orange-400 py-2 text-white transition hover:bg-orange-300 md:hidden"
         >
           Menu
         </button>
+        <div className="hidden flex-row items-center gap-4 rounded-full md:flex">
+          <button
+            type="button"
+            onClick={() => {
+              startGame();
+            }}
+            className="text-preset-8 text-grey-50 rounded-full bg-orange-400 px-6 py-3 hover:bg-orange-300"
+          >
+            Restart
+          </button>
+          <button
+            type="button"
+            onClick={() => {
+              resetGame();
+              navigate("/");
+            }}
+            className="text-preset-8 hover:bg-blue-350 w rounded-full bg-blue-100 px-6 py-3 text-blue-950 hover:text-white"
+          >
+            New Game
+          </button>
+        </div>
       </header>
 
-      <main className="w-full">
+      <main className="w-full md:px-15">
         <ul
           className={cn(
             "mx-auto grid w-full justify-items-center",
-            config?.gridSize === 4 && "max-w-136 grid-cols-4 gap-3",
-            config?.gridSize === 6 && "max-w-143 grid-cols-6 gap-2 gap-x-2",
+            config?.gridSize === 4 &&
+              "text-preset-4 sm:text-preset-1 max-w-136 grid-cols-4 gap-3",
+            config?.gridSize === 6 &&
+              "text-preset-7 sm:text-preset-3 max-w-143 grid-cols-6 gap-2 gap-x-2",
           )}
         >
           {tiles &&
