@@ -38,10 +38,10 @@ const GameBoard = () => {
 
   useEffect(() => {
     if (phase === "playing" && tiles.length > 0) {
-      resumeTimer();
-    } else {
-      startGame();
+      // restored from localStorage — timer starts on first click
+      return;
     }
+    startGame();
   }, []);
 
   useEffect(() => {
