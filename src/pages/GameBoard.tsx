@@ -151,20 +151,31 @@ const GameBoard = () => {
             </li>
           </ul>
         ) : (
-          <ul className="flex gap-2">
+          <ul className="flex gap-6 md:gap-2">
             {unRankedScore.map((player) => {
               const isCurrentPlayer = player.player === currentPlayerIndex + 1;
               return (
                 <li
                   key={player.player}
                   className={cn(
-                    "maw-w-64 flex flex-1 flex-col gap-2 rounded-md px-4 py-2",
+                    "maw-w-64 relative flex flex-1 flex-col items-center justify-evenly gap-2 rounded-md px-3 py-2.5 md:items-start md:px-4",
                     isCurrentPlayer ? "bg-orange-400" : "bg-blue-100",
                   )}
                 >
+                  {isCurrentPlayer && (
+                    <span className="absolute -top-2 left-1/2 aspect-square w-4 -translate-x-1/2 rotate-45 bg-orange-400"></span>
+                  )}
                   <span
                     className={cn(
-                      "text-preset-11! text-center",
+                      "text-preset-11! sm:hidden",
+                      isCurrentPlayer ? "text-white" : "text-blue-400",
+                    )}
+                  >
+                    P{player.player}
+                  </span>
+                  <span
+                    className={cn(
+                      "text-preset-11! hidden sm:block",
                       isCurrentPlayer ? "text-white" : "text-blue-400",
                     )}
                   >
