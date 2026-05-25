@@ -116,7 +116,7 @@ const GameBoard = () => {
                   {tile.isMatched || flippedIds.includes(tile.id) ? (
                     <span
                       className={cn(
-                        "text-preset-7 text-grey-50 flex h-full w-full items-center justify-center rounded-full",
+                        "text-grey-50 flex h-full w-full items-center justify-center rounded-full transition-[background-color] duration-50 ease-in",
                         tile.isMatched ? "bg-orange-400" : "bg-blue-300",
                       )}
                     >
@@ -127,14 +127,14 @@ const GameBoard = () => {
                       )}
                     </span>
                   ) : (
-                    <span className="h-full w-full rounded-full bg-blue-800"></span>
+                    <span className="hover:bg-blue-350! h-full w-full rounded-full bg-blue-800 transition-[background-color] duration-50 ease-in"></span>
                   )}
                 </li>
               );
             })}
         </ul>
       </main>
-      <footer className="w-full">
+      <footer className="mt-25 w-full md:mt-28">
         {config?.players === 1 ? (
           <ul className="mt-27 flex w-full gap-6">
             <li className="flex flex-1 flex-col justify-center rounded-lg bg-blue-100 py-3 text-center md:flex-row md:items-center md:justify-around">
