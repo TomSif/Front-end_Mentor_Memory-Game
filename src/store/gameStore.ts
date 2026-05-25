@@ -2,7 +2,7 @@ import { create, StateCreator } from "zustand";
 import { persist } from "zustand/middleware";
 import { Tile, GameConfig } from "../types/game";
 import generateBoard from "../lib/generateBoard";
-const FLIP_BACK_DELAY_MS = 1000;
+const FLIP_BACK_DELAY_MS = 500;
 
 export interface GameStore {
   tiles: Tile[];
@@ -51,6 +51,7 @@ const storeConfig: StateCreator<GameStore> = (set, get) => ({
       moves: 0,
       flippedIds: [],
       currentPlayerIndex: 0,
+      isRunning: false,
     });
   },
   flipTile: (id: string) => {
