@@ -41,23 +41,4 @@ export const ICON_MAP: Record<string, LucideIcon> = {
   sword: Sword,
 };
 
-export const ICON_NAMES = [
-  "bird",
-  "cherry",
-  "coffee",
-  "egg",
-  "flaskround",
-  "flower",
-  "gamepad",
-  "gem",
-  "ghost",
-  "heart",
-  "icecream",
-  "queen",
-  "paw",
-  "axe",
-  "pizza",
-  "squirrel",
-  "star",
-  "sword",
-];
+export const ICON_NAMES = Object.keys(ICON_MAP);
