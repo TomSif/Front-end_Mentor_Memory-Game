@@ -40,6 +40,8 @@ function GameOverModal({
 
   return (
     <dialog
+      aria-labelledby="gameoverTitle"
+      aria-modal="true"
       ref={dialogRef}
       id="gameoverModal"
       className="m-0 h-screen max-h-none min-h-dvh w-screen max-w-none scale-95 border-0 bg-transparent opacity-0 transition-all duration-200 backdrop:bg-black/50 backdrop:backdrop-blur-sm [[open]]:scale-100 [[open]]:opacity-100"
@@ -48,15 +50,24 @@ function GameOverModal({
         <div className="bg-grey-50 flex w-82 flex-col items-center gap-6 p-6 opacity-100">
           <section>
             {score.length === 1 ? (
-              <h2 className="text-preset-7 text-center text-blue-950">
+              <h2
+                id="gameoverTitle"
+                className="text-preset-7 text-center text-blue-950"
+              >
                 You did it
               </h2>
             ) : !isTie ? (
-              <h2 className="text-preset-7 text-center text-blue-950">
+              <h2
+                id="gameoverTitle"
+                className="text-preset-7 text-center text-blue-950"
+              >
                 Player {rankedPlayers[0].player} Wins
               </h2>
             ) : (
-              <h2 className="text-preset-7 text-center text-blue-950">
+              <h2
+                id="gameoverTitle"
+                className="text-preset-7 text-center text-blue-950"
+              >
                 It's a tie!
               </h2>
             )}
