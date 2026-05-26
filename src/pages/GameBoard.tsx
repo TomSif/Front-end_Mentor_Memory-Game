@@ -58,8 +58,8 @@ const GameBoard = () => {
   }, [phase]);
 
   return (
-    <div className="mx-auto min-h-dvh max-w-277 bg-white p-6 md:p-10">
-      <header className="mb-20 flex items-center justify-between">
+    <div className="mx-auto min-h-dvh max-w-277 bg-white p-6 sm:p-10 md:p-16.5">
+      <header className="mb-20 flex items-center justify-between md:pb-21.5">
         <h1 className="text-preset-7 md:text-preset-4 text-blue-950">memory</h1>
         <button
           onClick={() => {
@@ -134,20 +134,26 @@ const GameBoard = () => {
             })}
         </ul>
       </main>
-      <footer className="mt-25 w-full md:mt-28">
+      <footer className="mx-auto mt-25 w-full max-w-135 md:mt-26.5">
         {config?.players === 1 ? (
-          <ul className="mt-27 flex w-full gap-6">
-            <li className="flex flex-1 flex-col justify-center rounded-lg bg-blue-100 py-3 text-center md:flex-row md:items-center md:justify-around">
-              <span className="text-preset-11 text-blue-400">Time</span>
-              <span className="text-preset-7 text-blue-800">
+          <ul className="mt-27 flex w-full gap-6 md:gap-8">
+            <li className="flex flex-1 flex-col justify-center rounded-lg bg-blue-100 py-3 text-center md:flex-row md:items-center md:justify-around md:py-4">
+              <span className="text-preset-11 md:text-preset-9 text-blue-400">
+                Time
+              </span>
+              <span className="text-preset-7 md:text-preset-5 text-blue-800">
                 {`${minutes.toString().padStart(2, "0")}:${seconds
                   .toString()
                   .padStart(2, "0")}`}
               </span>
             </li>
             <li className="flex flex-1 flex-col justify-center gap-1 rounded-lg bg-blue-100 py-3 text-center md:flex-row md:items-center md:justify-around">
-              <span className="text-preset-11 text-blue-400">Moves</span>
-              <span className="text-preset-7 text-blue-800">{moves}</span>
+              <span className="text-preset-11 md:text-preset-9 text-blue-400">
+                Moves
+              </span>
+              <span className="text-preset-7 md:text-preset-5 text-blue-800">
+                {moves}
+              </span>
             </li>
           </ul>
         ) : (
@@ -188,6 +194,14 @@ const GameBoard = () => {
                     )}
                   >
                     {player.score}
+                  </span>
+                  <span
+                    className={cn(
+                      "text-preset-13! absolute -bottom-10 left-1/2 hidden w-full -translate-x-1/2 text-center font-bold text-blue-950",
+                      isCurrentPlayer ? "sm:block" : "",
+                    )}
+                  >
+                    CURRENT TURN
                   </span>
                 </li>
               );
