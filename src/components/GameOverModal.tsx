@@ -41,7 +41,7 @@ function GameOverModal({
   return (
     <dialog
       ref={dialogRef}
-      id="modal"
+      id="gameoverModal"
       className="m-0 flex h-screen max-h-none min-h-dvh w-screen max-w-none scale-95 items-center justify-center border-0 bg-transparent opacity-0 transition-all duration-200 backdrop:bg-black/50 backdrop:backdrop-blur-sm [[open]]:scale-100 [[open]]:opacity-100"
     >
       <div className="bg-grey-50 flex w-82 flex-col items-center gap-6 p-6 opacity-100">
