@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import { useNavigate } from "react-router";
 import { useGameStore } from "../store/gameStore";
 import { cn } from "../lib/cn";
@@ -34,7 +34,10 @@ const GameBoard = () => {
     player: index + 1,
     score,
   }));
-  const rankedPlayers = unRankedScore.sort((a, b) => b.score - a.score);
+
+  const rankedPlayers = useMemo(() => {
+    return [...unRankedScore].sort((a, b) => b.score - a.score);
+  }, [unRankedScore]);
 
   useEffect(() => {
     if (phase === "playing" && tiles.length > 0) {
