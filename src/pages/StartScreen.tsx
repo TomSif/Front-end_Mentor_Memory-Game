@@ -11,12 +11,14 @@ const StartScreen = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="flex min-h-dvh flex-col items-center justify-center gap-12 bg-blue-950 px-6 text-center">
-      <h1 className="text-preset-5 text-grey-50">memory</h1>
-      <main className="bg-grey-50 text-preset-11 flex w-full max-w-82 flex-col gap-6 rounded-xl p-6 text-blue-400">
+    <div className="flex min-h-dvh flex-col items-center justify-center gap-12 bg-blue-950 px-6 text-center md:gap-20">
+      <h1 className="text-preset-5 md:text-preset-4 text-grey-50">memory</h1>
+      <main className="bg-grey-50 text-preset-11 md:text-preset-6 flex w-full max-w-82 flex-col gap-6 rounded-xl p-6 text-blue-400 sm:max-w-163 md:gap-8 md:px-13.5 md:py-14">
         <fieldset className="">
-          <legend className="mb-3 text-left">Select Theme</legend>
-          <div className="text-grey-50 flex gap-2">
+          <legend className="md:text-preset-8 mb-3 text-left md:mb-4">
+            Select Theme
+          </legend>
+          <div className="text-grey-50 flex gap-2 md:gap-8">
             <label className="flex-1 cursor-pointer">
               <input
                 type="radio"
@@ -29,7 +31,7 @@ const StartScreen = () => {
                 className="peer hidden"
               />
 
-              <span className="hover:bg-blue-350 block w-full rounded-full bg-blue-300 px-4 py-2 text-center transition peer-checked:bg-blue-800 peer-checked:text-white">
+              <span className="hover:bg-blue-350 block w-full rounded-full bg-blue-300 px-4 py-2 text-center transition peer-checked:bg-blue-800 peer-checked:text-white md:py-2.5">
                 Numbers
               </span>
             </label>
@@ -44,15 +46,17 @@ const StartScreen = () => {
                 }
                 className="peer hidden"
               />
-              <span className="hover:bg-blue-350 block w-full rounded-full bg-blue-300 px-4 py-2 text-center transition peer-checked:bg-blue-800 peer-checked:text-white">
+              <span className="hover:bg-blue-350 block w-full rounded-full bg-blue-300 px-4 py-2 text-center transition peer-checked:bg-blue-800 peer-checked:text-white md:py-2.5">
                 Icons
               </span>
             </label>
           </div>
         </fieldset>
         <fieldset>
-          <legend className="mb-3 text-left">Number of Players</legend>
-          <div className="text-grey-50 flex gap-2">
+          <legend className="md:text-preset-8 mb-3 text-left md:mb-4">
+            Number of Players
+          </legend>
+          <div className="text-grey-50 flex gap-2 md:gap-6">
             <label className="flex-1 cursor-pointer">
               <input
                 type="radio"
@@ -62,7 +66,7 @@ const StartScreen = () => {
                 onChange={() => setPlayers(1)}
                 className="peer hidden"
               />
-              <span className="hover:bg-blue-350 block w-full rounded-full bg-blue-300 px-4 py-2 text-center transition peer-checked:bg-blue-800 peer-checked:text-white">
+              <span className="hover:bg-blue-350 block w-full rounded-full bg-blue-300 px-4 py-2 text-center transition peer-checked:bg-blue-800 peer-checked:text-white md:py-2.5">
                 1
               </span>
             </label>
@@ -76,7 +80,7 @@ const StartScreen = () => {
                 onChange={() => setPlayers(2)}
                 className="peer hidden"
               />
-              <span className="hover:bg-blue-350 block w-full rounded-full bg-blue-300 px-4 py-2 text-center transition peer-checked:bg-blue-800 peer-checked:text-white">
+              <span className="hover:bg-blue-350 block w-full rounded-full bg-blue-300 px-4 py-2 text-center transition peer-checked:bg-blue-800 peer-checked:text-white md:py-2.5">
                 2
               </span>
             </label>
@@ -90,7 +94,7 @@ const StartScreen = () => {
                 onChange={() => setPlayers(3)}
                 className="peer hidden"
               />
-              <span className="hover:bg-blue-350 block w-full rounded-full bg-blue-300 px-4 py-2 text-center transition peer-checked:bg-blue-800 peer-checked:text-white">
+              <span className="hover:bg-blue-350 block w-full rounded-full bg-blue-300 px-4 py-2 text-center transition peer-checked:bg-blue-800 peer-checked:text-white md:py-2.5">
                 3
               </span>
             </label>
@@ -104,15 +108,17 @@ const StartScreen = () => {
                 onChange={() => setPlayers(4)}
                 className="peer hidden"
               />
-              <span className="hover:bg-blue-350 block w-full rounded-full bg-blue-300 px-4 py-2 text-center transition peer-checked:bg-blue-800 peer-checked:text-white">
+              <span className="hover:bg-blue-350 block w-full rounded-full bg-blue-300 px-4 py-2 text-center transition peer-checked:bg-blue-800 peer-checked:text-white md:py-2.5">
                 4
               </span>
             </label>
           </div>
         </fieldset>
         <fieldset>
-          <legend className="mb-3 text-left">Grid Size</legend>
-          <div className="text-grey-50 flex gap-2">
+          <legend className="md:text-preset-8 mb-3 text-left md:mb-4">
+            Grid Size
+          </legend>
+          <div className="text-grey-50 flex gap-2 md:gap-8">
             <label className="flex-1 cursor-pointer">
               <input
                 type="radio"
@@ -122,7 +128,7 @@ const StartScreen = () => {
                 onChange={() => setGridSize(4)}
                 className="peer hidden"
               />
-              <span className="hover:bg-blue-350 block w-full rounded-full bg-blue-300 px-4 py-2 text-center transition peer-checked:bg-blue-800 peer-checked:text-white">
+              <span className="hover:bg-blue-350 block w-full rounded-full bg-blue-300 px-4 py-2 text-center transition peer-checked:bg-blue-800 peer-checked:text-white md:py-2.5">
                 4x4
               </span>
             </label>
@@ -136,14 +142,14 @@ const StartScreen = () => {
                 onChange={() => setGridSize(6)}
                 className="peer hidden"
               />
-              <span className="hover:bg-blue-350 block w-full rounded-full bg-blue-300 px-4 py-2 text-center transition peer-checked:bg-blue-800 peer-checked:text-white">
+              <span className="hover:bg-blue-350 block w-full rounded-full bg-blue-300 px-4 py-2 text-center transition peer-checked:bg-blue-800 peer-checked:text-white md:py-2.5">
                 6x6
               </span>
             </label>
           </div>
         </fieldset>
         <button
-          className="text-preset-9 w-full cursor-pointer rounded-full bg-orange-400 py-2 text-white transition hover:bg-orange-300"
+          className="text-preset-9 md:text-preset-5 w-full cursor-pointer rounded-full bg-orange-400 py-2 text-white transition hover:bg-orange-300 md:py-4"
           onClick={() => {
             setConfig({ theme, players, gridSize });
             navigate("/game");
