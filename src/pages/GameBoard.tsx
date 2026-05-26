@@ -114,6 +114,7 @@ const GameBoard = () => {
                 <li className="flex h-full w-full" key={tile.id}>
                   <button
                     type="button"
+                    disabled={tile.isMatched}
                     onClick={() => flipTile(tile.id)}
                     className="flex aspect-square h-full w-full cursor-pointer rounded-full"
                     aria-label={
