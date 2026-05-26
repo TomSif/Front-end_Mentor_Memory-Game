@@ -116,7 +116,7 @@ const GameBoard = () => {
                     type="button"
                     disabled={tile.isMatched}
                     onClick={() => flipTile(tile.id)}
-                    className="flex aspect-square h-full w-full cursor-pointer rounded-full"
+                    className="flex aspect-square h-full w-full cursor-pointer rounded-full outline-blue-800 focus:outline-offset-6"
                     aria-label={
                       tile.isMatched
                         ? `Matched, ${tile.value}`
