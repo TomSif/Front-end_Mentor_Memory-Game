@@ -87,7 +87,7 @@ const GameBoard = () => {
               resetGame();
               navigate("/");
             }}
-            className="text-preset-8 hover:bg-blue-350 w rounded-full bg-blue-100 px-6 py-3 text-blue-950 hover:text-white"
+            className="text-preset-8 hover:bg-blue-350 rounded-full bg-blue-100 px-6 py-3 text-blue-950 hover:text-white"
           >
             New Game
           </button>
