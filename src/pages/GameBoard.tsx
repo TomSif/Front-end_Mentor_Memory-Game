@@ -88,19 +88,18 @@ const GameBoard = () => {
               "text-preset-7 sm:text-preset-3 max-w-143 grid-cols-6 gap-2 gap-x-2",
           )}
         >
-          {tiles &&
-            tiles.map((tile) => {
-              return (
-                <Tile
-                  key={tile.id}
-                  onFlip={() => flipTile(tile.id)}
-                  value={tile.value}
-                  id={tile.id}
-                  flippedIds={flippedIds}
-                  isMatched={tile.isMatched}
-                />
-              );
-            })}
+          {tiles.map((tile) => {
+            return (
+              <Tile
+                key={tile.id}
+                onFlip={() => flipTile(tile.id)}
+                value={tile.value}
+                id={tile.id}
+                flippedIds={flippedIds}
+                isMatched={tile.isMatched}
+              />
+            );
+          })}
         </ul>
       </main>
       <footer className="mx-auto mt-25 w-full max-w-135 md:mt-26.5">
