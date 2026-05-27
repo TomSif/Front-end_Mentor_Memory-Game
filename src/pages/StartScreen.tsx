@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router";
 import { useGameStore } from "../store/gameStore";
 import { GameConfig } from "../types/game";
+import RadioOptions from "../components/RadioOptions";
 
 const StartScreen = () => {
   const [theme, setTheme] = useState<GameConfig["theme"]>("numbers");
@@ -19,37 +20,20 @@ const StartScreen = () => {
             Select Theme
           </legend>
           <div className="text-grey-50 flex gap-2 md:gap-8">
-            <label className="flex-1 cursor-pointer">
-              <input
-                type="radio"
-                name="theme"
-                value="numbers"
-                checked={theme === "numbers"}
-                onChange={(e) =>
-                  setTheme(e.target.value as GameConfig["theme"])
-                }
-                className="peer hidden"
-              />
-
-              <span className="hover:bg-blue-350 block w-full rounded-full bg-blue-300 px-4 py-2 text-center transition peer-checked:bg-blue-800 peer-checked:text-white md:py-2.5">
-                Numbers
-              </span>
-            </label>
-            <label className="flex-1 cursor-pointer">
-              <input
-                type="radio"
-                name="theme"
-                value="icons"
-                checked={theme === "icons"}
-                onChange={(e) =>
-                  setTheme(e.target.value as GameConfig["theme"])
-                }
-                className="peer hidden"
-              />
-              <span className="hover:bg-blue-350 block w-full rounded-full bg-blue-300 px-4 py-2 text-center transition peer-checked:bg-blue-800 peer-checked:text-white md:py-2.5">
-                Icons
-              </span>
-            </label>
+            <RadioOptions
+              name={"theme"}
+              value={"numbers"}
+              checked={theme === "numbers"}
+              onChange={(v) => setTheme(v as GameConfig["theme"])}
+              children="Numbers"
+            />
+            <RadioOptions
+              name={"theme"}
+              value={"icons"}
+              checked={theme === "icons"}
+              onChange={(v) => setTheme(v as GameConfig["theme"])}
+              children="Icons"
+            />
           </div>
         </fieldset>
         <fieldset>
@@ -57,61 +41,34 @@ const StartScreen = () => {
             Number of Players
           </legend>
           <div className="text-grey-50 flex gap-2 md:gap-6">
-            <label className="flex-1 cursor-pointer">
-              <input
-                type="radio"
-                name="players"
-                value={1}
-                checked={players === 1}
-                onChange={() => setPlayers(1)}
-                className="peer hidden"
-              />
-              <span className="hover:bg-blue-350 block w-full rounded-full bg-blue-300 px-4 py-2 text-center transition peer-checked:bg-blue-800 peer-checked:text-white md:py-2.5">
-                1
-              </span>
-            </label>
-
-            <label className="flex-1 cursor-pointer">
-              <input
-                type="radio"
-                name="players"
-                value={2}
-                checked={players === 2}
-                onChange={() => setPlayers(2)}
-                className="peer hidden"
-              />
-              <span className="hover:bg-blue-350 block w-full rounded-full bg-blue-300 px-4 py-2 text-center transition peer-checked:bg-blue-800 peer-checked:text-white md:py-2.5">
-                2
-              </span>
-            </label>
-
-            <label className="flex-1 cursor-pointer">
-              <input
-                type="radio"
-                name="players"
-                value={3}
-                checked={players === 3}
-                onChange={() => setPlayers(3)}
-                className="peer hidden"
-              />
-              <span className="hover:bg-blue-350 block w-full rounded-full bg-blue-300 px-4 py-2 text-center transition peer-checked:bg-blue-800 peer-checked:text-white md:py-2.5">
-                3
-              </span>
-            </label>
-
-            <label className="flex-1 cursor-pointer">
-              <input
-                type="radio"
-                name="players"
-                value={4}
-                checked={players === 4}
-                onChange={() => setPlayers(4)}
-                className="peer hidden"
-              />
-              <span className="hover:bg-blue-350 block w-full rounded-full bg-blue-300 px-4 py-2 text-center transition peer-checked:bg-blue-800 peer-checked:text-white md:py-2.5">
-                4
-              </span>
-            </label>
+            <RadioOptions
+              name={"players"}
+              value={1}
+              checked={players === 1}
+              onChange={(v) => setPlayers(v as GameConfig["players"])}
+              children="1"
+            />
+            <RadioOptions
+              name={"players"}
+              value={2}
+              checked={players === 2}
+              onChange={(v) => setPlayers(v as GameConfig["players"])}
+              children="2"
+            />
+            <RadioOptions
+              name={"players"}
+              value={3}
+              checked={players === 3}
+              onChange={(v) => setPlayers(v as GameConfig["players"])}
+              children="3"
+            />
+            <RadioOptions
+              name={"players"}
+              value={4}
+              checked={players === 4}
+              onChange={(v) => setPlayers(v as GameConfig["players"])}
+              children="4"
+            />
           </div>
         </fieldset>
         <fieldset>
@@ -119,33 +76,20 @@ const StartScreen = () => {
             Grid Size
           </legend>
           <div className="text-grey-50 flex gap-2 md:gap-8">
-            <label className="flex-1 cursor-pointer">
-              <input
-                type="radio"
-                name="gridSize"
-                value={4}
-                checked={gridSize === 4}
-                onChange={() => setGridSize(4)}
-                className="peer hidden"
-              />
-              <span className="hover:bg-blue-350 block w-full rounded-full bg-blue-300 px-4 py-2 text-center transition peer-checked:bg-blue-800 peer-checked:text-white md:py-2.5">
-                4x4
-              </span>
-            </label>
-
-            <label className="flex-1 cursor-pointer">
-              <input
-                type="radio"
-                name="gridSize"
-                value={6}
-                checked={gridSize === 6}
-                onChange={() => setGridSize(6)}
-                className="peer hidden"
-              />
-              <span className="hover:bg-blue-350 block w-full rounded-full bg-blue-300 px-4 py-2 text-center transition peer-checked:bg-blue-800 peer-checked:text-white md:py-2.5">
-                6x6
-              </span>
-            </label>
+            <RadioOptions
+              name={"gridSize"}
+              value={4}
+              checked={gridSize === 4}
+              onChange={(v) => setGridSize(v as GameConfig["gridSize"])}
+              children="4x4"
+            />
+            <RadioOptions
+              name={"gridSize"}
+              value={6}
+              checked={gridSize === 6}
+              onChange={(v) => setGridSize(v as GameConfig["gridSize"])}
+              children="6x6"
+            />
           </div>
         </fieldset>
         <button
