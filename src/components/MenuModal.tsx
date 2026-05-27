@@ -20,6 +20,10 @@ function MenuModal({ isOpen, onResume, onRestart, onNewGame }: MenuModalProps) {
 
   return (
     <dialog
+      onCancel={(e) => {
+        e.preventDefault();
+        onResume();
+      }}
       aria-labelledby="menuTitle"
       aria-modal="true"
       ref={dialogRef}

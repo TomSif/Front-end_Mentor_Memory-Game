@@ -40,6 +40,10 @@ function GameOverModal({
 
   return (
     <dialog
+      onCancel={(e) => {
+        e.preventDefault();
+        onRestart();
+      }}
       aria-labelledby="gameoverTitle"
       aria-modal="true"
       ref={dialogRef}
