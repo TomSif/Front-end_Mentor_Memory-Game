@@ -111,6 +111,18 @@ const storeConfig: StateCreator<GameStore> = (set, get) => ({
 export const useGameStore = create<GameStore>()(
   persist(storeConfig, {
     name: "game-store",
+    version: 1,
+    migrate: (saveState, savedVersion) => {
+      if (savedVersion < 1) {
+        return {
+          ...(saveState as GameStore),
+          phase: "setup",
+          tiles: [],
+          isRunning: false,
+        };
+      }
+      return saveState as GameStore;
+    },
     partialize: (state) => ({ ...state, isRunning: false }),
   }),
 );
