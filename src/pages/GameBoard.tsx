@@ -5,6 +5,8 @@ import { cn } from "../lib/cn";
 import GameOverModal from "../components/GameOverModal";
 import MenuModal from "../components/MenuModal";
 import Tile from "../components/Tile";
+import Header from "../components/Header";
+import FooterSolo from "../components/FooterSolo";
 
 const GameBoard = () => {
   const [isGameOverOpen, setIsGameOverOpen] = useState(false);
@@ -62,40 +64,13 @@ const GameBoard = () => {
 
   return (
     <div className="mx-auto min-h-dvh max-w-277 bg-white p-6 sm:p-10 md:p-16.5">
-      <header className="mb-20 flex items-center justify-between md:pb-21.5">
-        <h1 className="text-preset-7 md:text-preset-4 text-blue-950">memory</h1>
-        <button
-          onClick={() => {
-            setIsMenuOpen(true);
-            stopTimer();
-          }}
-          type="button"
-          className="text-preset-10 w-19.5 cursor-pointer rounded-full bg-orange-400 py-2 text-white transition hover:bg-orange-300 md:hidden"
-        >
-          Menu
-        </button>
-        <div className="hidden flex-row items-center gap-4 rounded-full md:flex">
-          <button
-            type="button"
-            onClick={() => {
-              startGame();
-            }}
-            className="text-preset-8 text-grey-50 rounded-full bg-orange-400 px-6 py-3 hover:bg-orange-300"
-          >
-            Restart
-          </button>
-          <button
-            type="button"
-            onClick={() => {
-              resetGame();
-              navigate("/");
-            }}
-            className="text-preset-8 hover:bg-blue-350 rounded-full bg-blue-100 px-6 py-3 text-blue-950 hover:text-white"
-          >
-            New Game
-          </button>
-        </div>
-      </header>
+      <Header
+        onMenuOpen={() => setIsMenuOpen(true)}
+        onStop={() => stopTimer()}
+        onStart={() => startGame()}
+        onReset={() => resetGame()}
+        onNavigate={() => navigate("/")}
+      />
 
       <main className="w-full md:px-15">
         <ul
@@ -124,26 +99,7 @@ const GameBoard = () => {
       </main>
       <footer className="mx-auto mt-25 w-full max-w-135 md:mt-26.5">
         {config?.players === 1 ? (
-          <ul className="mt-27 flex w-full gap-6 md:gap-8">
-            <li className="flex flex-1 flex-col justify-center rounded-lg bg-blue-100 py-3 text-center md:flex-row md:items-center md:justify-around md:py-4">
-              <span className="text-preset-11 md:text-preset-9 text-blue-400">
-                Time
-              </span>
-              <span className="text-preset-7 md:text-preset-5 text-blue-800">
-                {`${minutes.toString().padStart(2, "0")}:${seconds
-                  .toString()
-                  .padStart(2, "0")}`}
-              </span>
-            </li>
-            <li className="flex flex-1 flex-col justify-center gap-1 rounded-lg bg-blue-100 py-3 text-center md:flex-row md:items-center md:justify-around">
-              <span className="text-preset-11 md:text-preset-9 text-blue-400">
-                Moves
-              </span>
-              <span className="text-preset-7 md:text-preset-5 text-blue-800">
-                {moves}
-              </span>
-            </li>
-          </ul>
+          <FooterSolo minutes={minutes} seconds={seconds} moves={moves} />
         ) : (
           <ul className="flex gap-6 md:gap-2">
             {unRankedScore.map((player) => {
