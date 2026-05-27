@@ -43,6 +43,10 @@ const GameBoard = () => {
   }, [unRankedScore]);
 
   useEffect(() => {
+    if (!config) {
+      navigate("/");
+      return;
+    }
     if (phase === "playing" && tiles.length > 0) {
       // restored from localStorage — timer starts on first click
       return;
