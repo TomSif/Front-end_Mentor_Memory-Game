@@ -1,113 +1,224 @@
-# Frontend Mentor - Memory game
+# Frontend Mentor - Memory Game 🧠
 
-![Design preview for the Memory game coding challenge](./preview.jpg)
+[![React](https://img.shields.io/badge/react_19-20232a?style=for-the-badge&logo=react&logoColor=61dafb)](https://reactjs.org/)
+[![React Router](https://img.shields.io/badge/react_router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)](https://reactrouter.com/)
+[![Vite](https://img.shields.io/badge/vite-646cff?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
+[![Tailwind](https://img.shields.io/badge/tailwindcss_v4-0F172A?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
+[![TypeScript](https://img.shields.io/badge/typescript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Zustand](https://img.shields.io/badge/zustand-brown?style=for-the-badge&logoColor=white)](https://github.com/pmndrs/zustand)
+[![Lucide Icons](https://img.shields.io/badge/lucide_icons-blue?style=for-the-badge&logoColor=white)](https://lucide.dev/)
 
-## Welcome! 👋
+<img src="./public/assets/screenshot-game-icons.png" alt="Design preview for the Memory Game challenge" width="800" />
 
-Thanks for purchasing this premium Frontend Mentor coding challenge.
+### 🌐 Live Demo:
 
-[Frontend Mentor](https://www.frontendmentor.io) challenges help you improve your coding skills by building realistic projects. These premium challenges are perfect portfolio pieces, so please feel free to use what you create in your portfolio to show others.
+**[View live site →](https://front-end-mentor-memory-game.vercel.app/)**
 
-**To do this challenge, you need a strong understanding of HTML, CSS, and JavaScript.**
+Deployed on Vercel with HTTPS and performance optimizations.
 
-## The challenge
+---
 
-Your challenge is to build out this Memory game and get it looking as close to the design as possible.
+This is a solution to the [Memory Game challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/memory-game-vse4WFPvM). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
-You can use any tools you like to help you complete the challenge. So if you've got something you'd like to practice, feel free to give it a go.
+## Table of contents
 
-Your users should be able to:
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Continued development](#continued-development)
+- [Author](#author)
+- [Acknowledgments](#acknowledgments)
+
+## Overview
+
+### The challenge
+
+Users should be able to:
 
 - View the optimal layout for the game depending on their device's screen size
 - See hover states for all interactive elements on the page
 - Play the Memory game either solo or multiplayer (up to 4 players)
 - Set the theme to use numbers or icons within the tiles
-- Choose to play on either a 6x6 or 4x4 grid
+- Choose to play on either a 4x4 or 6x6 grid
 
-### Want some support on the challenge?
+### Screenshot
 
-[Join our community](https://www.frontendmentor.io/community) and ask questions in the **#help** channel.
+<table>
+  <tr>
+    <td><img src="./public/assets/screenshot-start.png" alt="Start Menu" width="400" /></td>
+    <td><img src="./public/assets/screen.png" alt="Multiplayers" width="400" /></td>
+  </tr>
+  <tr>
+    <td><img src="./public/assets/screen-mobile.png" alt="Mobile version" width="250" /></td>
+    <td><img src="./public/assets/menu.png" alt="Mobile menu" width="250" /></td>
+  </tr>
+</table>
 
-### Expected behaviour
+### Links
 
-- You can choose to make the default screen either the Start Game screen or the solo player 4x4 grid. Note that we're using the solo player 4x4 grid for the design screenshot, so if you choose the Start Game screen, it won't match up in the design comparison slider. This isn't a big deal, but is something worth considering.
-- In a solo game, track the time elapsed since first clicking on a tile and the total number of moves made. A move counts as two tiles being selected as a potential match. Once all pairs have been found, stop the timer and show the end of game modal with the stats.
-- In a multiplayer game, track the total number of pairs each player has found. If a player finds a pair, increment their score by one. The current turn switches to the next player after the current player has made a move to find a potential match.
-- Clicking "Restart" will restart the game with the current settings
-- Clicking "New Game" will go to the Start Game screen where the player can choose their settings
-- The icons in the design are from [Font Awesome](https://fontawesome.com/). Please choose whatever icons you prefer. You could even use a different icon library, if you like.
+- Solution URL: [GitHub Repository](https://github.com/TomSif/Front-end_Mentor_Memory-Game)
+- Live Site URL: [Vercel Deployment](https://front-end-mentor-memory-game.vercel.app/)
 
-## Where to find everything
+## My process
 
-Your task is to build out the project to the design file provided. You can download the Figma design file on the platform. **Please be sure not to share it with anyone else.** The design download comes with a `README.md` file as well to help you get set up.
+### Built with
 
-All the required assets for this project are in the `/assets` folder. The assets are already exported for the correct screen size and optimized. Some images are reusable at multiple screen sizes. So if you don't see an image in a specific folder, it will typically be in another folder for that page.
+- Semantic HTML5 markup (native `<dialog>` for modals, `<fieldset>` + `<legend>` for radio groups)
+- Mobile-first workflow
+- [React 19](https://react.dev/) - JS library
+- [React Router v7](https://reactrouter.com/) - Client-side routing
+- [TypeScript](https://www.typescriptlang.org/)
+- [Vite](https://vitejs.dev/) - Build tool
+- [Tailwind CSS v4](https://tailwindcss.com/) - Utility-first CSS (`@theme` variables, `@utility` presets, arbitrary `transition-[background-color]`)
+- [Zustand](https://github.com/pmndrs/zustand) - State management with `persist` middleware (`partialize`, `migrate`, versioned schema)
+- [Lucide React](https://lucide.dev/) - Icon library for the icons theme
+- [clsx](https://github.com/lukeed/clsx) + [tailwind-merge](https://github.com/dcastil/tailwind-merge) — `cn()` utility for conditional classNames
+- React `ErrorBoundary` (class component) - Render-error safety net around `GameBoard`
 
-The design system in the design file will give you more information about the various colors, fonts, and styles used in this project.
+### What I learned
 
-## Using AI coding assistants
+#### Zustand store architecture — single source of truth + `persist`
 
-We've included two files to help you if you're using AI coding assistants (like Claude, GitHub Copilot, Cursor, etc.) while working on this challenge:
+The architectural backbone of this project is a single Zustand store that owns `gameConfig`, `tiles`, `flippedIds`, `phase`, `timeElapsed`, `isRunning`, `currentPlayerIndex`, `scores`, and all the actions that mutate them. `StartScreen` writes the config; `GameBoard` reads from the store. React Router stays a pure navigation primitive — no state-passing through `location.state`.
 
-- `AGENTS.md` - Contains detailed instructions for AI assistants on how to help you with this challenge. It's tailored to this challenge's difficulty level, so the AI will provide guidance appropriate to your learning stage—offering more support for beginner challenges and encouraging more independence on advanced ones.
-- `CLAUDE.md` - A pointer file that directs Claude-based tools to the AGENTS.md instructions.
+```ts
+// Consumed safely from any component
+const { tiles, flippedIds, phase, flipTile, resetGame } = useGameStore();
+```
 
-**How to use them:** You don't need to do anything! These files are automatically detected by most AI coding tools. The AI will read them and adjust its behavior to be a better learning partner—guiding you toward solutions rather than just giving you the answers.
+The `persist` middleware required deliberate `partialize` configuration: actions can't be serialised, and `isRunning` must be forced to `false` on rehydration (otherwise the timer would resurrect itself on refresh without any `setInterval` actually running). A `version + migrate` pair was added later to handle stale localStorage states gracefully when the schema evolved:
 
-**Note:** These files are designed to help you *learn*, not to do the work for you. The AI is instructed to ask questions, give hints, and explain concepts rather than writing complete solutions.
+```ts
+persist(storeConfig, {
+  name: "memory-game",
+  version: 1,
+  partialize: (state) => ({
+    gameConfig: state.gameConfig,
+    tiles: state.tiles,
+    flippedIds: state.flippedIds,
+    phase: state.phase,
+    timeElapsed: state.timeElapsed,
+    isRunning: false, // never persist a running timer
+    moves: state.moves,
+    scores: state.scores,
+    currentPlayerIndex: state.currentPlayerIndex,
+  }),
+  migrate: (persistedState, version) => {
+    if (version < 1) return { ...persistedState, phase: "setup", tiles: [] };
+    return persistedState;
+  },
+});
+```
 
-## Building your project
+#### `setTimeout` race condition — storing the timeout ref in the store
 
-Feel free to use any workflow that you feel comfortable with. Below is a suggested process, but do not feel like you need to follow these steps:
+When two non-matching tiles are flipped, they flip back after a 1-second delay via `setTimeout`. A bug surfaced during the final audit: if the user clicks Restart or New Game mid-delay, the orphan timeout fires on the new game's state and overwrites `currentPlayerIndex` and `flippedIds`. The fix is to store the timeout reference in the store and cancel it on every reset path:
 
-1. Separate the `starter-code` from the rest of this project and rename it to something meaningful for you. Initialize the codebase as a public repository on [GitHub](https://github.com/). Creating a repo will make it easier to share your code with the community if you need help. If you're not sure how to do this, [have a read-through of this Try Git resource](https://try.github.io/). **⚠️ IMPORTANT ⚠️: There are already a couple of `.gitignore` files in this project. Please do not remove them or change the content of the files. If you create a brand new project, please use the `.gitignore` files provided in your new codebase. This is to avoid the accidental upload of the Figma design file to GitHub. With these premium challenges, please be sure not to share the Figma design file in your GitHub repo. Thanks!**
-2. Configure your repository to publish your code to a web address. This will also be useful if you need some help during a challenge as you can share the URL for your project with your repo URL. There are a number of ways to do this, and we provide some recommendations below.
-3. Look through the designs to start planning out how you'll tackle the project. This step is crucial to help you think ahead for CSS classes to create reusable styles.
-4. Before adding any styles, structure your content with HTML. Writing your HTML first can help focus your attention on creating well-structured content.
-5. Write out the base styles for your project, including general content styles, such as `font-family` and `font-size`.
-6. Start adding styles to the top of the page and work down. Only move on to the next section once you're happy you've completed the area you're working on.
+```ts
+// In the store
+flipBackTimeout: null as ReturnType<typeof setTimeout> | null,
 
-## Deploying your project
+checkMatch: () => {
+  // ... mismatch branch
+  const id = setTimeout(() => set({ flippedIds: [] }), FLIP_BACK_DELAY_MS);
+  set({ flipBackTimeout: id });
+},
 
-As mentioned above, there are many ways to host your project for free. Our recommended hosts are:
+startGame: () => {
+  const { flipBackTimeout } = get();
+  if (flipBackTimeout) clearTimeout(flipBackTimeout);
+  // ... rest of reset
+},
+```
 
-- [GitHub Pages](https://pages.github.com/)
-- [Vercel](https://vercel.com/)
-- [Netlify](https://www.netlify.com/)
+Two TypeScript notions surfaced in passing: `ReturnType<typeof setTimeout>` (adaptive across Node and browser environments), and the symmetry between `clearInterval` and `clearTimeout` — a stored timeout is just a number you have to remember to invalidate.
 
-You can host your site using one of these solutions or any of our other trusted providers. [Read more about our recommended and trusted hosts](https://www.frontendmentor.io/guides/hosting-your-solution).
+#### Native `<dialog>` + Escape key state sync
 
-## Create a custom `README.md`
+The `<dialog>` element was chosen deliberately for the free a11y it provides: focus trap, backdrop, `showModal()` / `close()` semantics. But native Escape behaviour creates a subtle desync — the dialog closes natively without telling React, so the parent's `isOpen` stays `true`, and the next render re-calls `showModal()`. The fix is to intercept `onCancel` and route the close through React state:
 
-We strongly recommend overwriting this `README.md` with a custom one. We've provided a template inside the [`README-template.md`](./README-template.md) file in this starter code.
+```tsx
+<dialog
+  ref={dialogRef}
+  aria-modal="true"
+  aria-labelledby="menuModalTitle"
+  onCancel={(e) => {
+    e.preventDefault();
+    onResume();
+  }}
+>
+  <h2 id="menuModalTitle">Menu</h2>
+  {/* ... */}
+</dialog>
+```
 
-The template provides a guide for what to add. A custom `README` will help you explain your project and reflect on your learnings. Please feel free to edit our template as much as you like.
+Two non-obvious points emerged from the same pass:
 
-Once you've added your information to the template, delete this file and rename the `README-template.md` file to `README.md`. That will make it show up as your repository's README file.
+- `aria-labelledby` must reference the `id` of the title element, not the dialog itself — the initial reflex was to point it at the dialog's own `id`.
+- A `<dialog>` is always mounted in React even when hidden — `display:none` is HTML-level, not React-level. Applying `flex` directly to `<dialog>` overrides the native `display:none` and breaks the hidden state entirely. The fix was to delegate layout to a wrapper `<div>`.
 
-## Submitting your solution
+#### Deriving state vs storing it — `flippedIds` over `isFlipped`
 
-Submit your solution on the platform for the rest of the community to see. Follow our ["Complete guide to submitting solutions"](https://www.frontendmentor.io/guides/how-to-submit-solutions) for tips on how to do this.
+Early in the project each `Tile` carried its own `isFlipped` boolean alongside the global `flippedIds` array in the store — two parallel sources of truth for the same fact. A refactor collapsed this: `isFlipped` is derived at render time from `flippedIds.includes(id)`, and `flipTile` no longer mutates the tiles array to mark one as flipped.
 
-Remember, if you're looking for feedback on your solution, be sure to ask questions when submitting it. The more specific and detailed you are with your questions, the higher the chance you'll get valuable feedback from the community.
+```ts
+// Before — duplicated state, mutation needed on every flip
+type Tile = {
+  id: string;
+  value: TileValue;
+  isFlipped: boolean;
+  isMatched: boolean;
+};
 
-**⚠️ IMPORTANT ⚠️: With these premium challenges, please be sure not to upload the Figma design file to GitHub when you're submitting to the platform and sharing it around. If you've created a brand new project, the easiest way to do that is to copy across the `.gitignore` provided in this starter project.**
+// After — derive at render, single source of truth
+type Tile = { id: string; value: TileValue; isMatched: boolean };
+const isFlipped = flippedIds.includes(tile.id) || tile.isMatched;
+```
 
-## Sharing your solution
+The win is in the surface area of state changes: `flipTile` becomes an append to `flippedIds`. Mismatches reset with `flippedIds: []`. Matches mutate the tiles array exactly once, to set `isMatched`. Whole categories of "the two booleans disagree" bugs disappear because there is no longer a second boolean to disagree.
 
-There are multiple places you can share your solution:
+#### `useMemo` — questioning the reflex
 
-1. Share your solution page in the **#finished-projects** channel of the [community](https://www.frontendmentor.io/community).
-2. Share on [X (formerly Twitter)](https://x.com/frontendmentor) and mention **@frontendmentor**, including the repo and live URLs in your post. We'd love to take a look at what you've built and help share it around.
-3. Share your solution on [LinkedIn](https://www.linkedin.com/company/frontend-mentor/).
-4. Blog about your experience building your project. Writing about your workflow, technical choices, and talking through your code is a brilliant way to reinforce what you've learned. Great platforms to write on are [dev.to](https://dev.to/), [Hashnode](https://hashnode.com/), and [CodeNewbie](https://community.codenewbie.org/).
+A `useMemo` was wrapping a `.sort()` on the players' scores, with `[unRankedScore]` as the dependency. The audit caught it: `unRankedScore` is rebuilt on every render → its reference is always new → the memo is invalidated on every render → the sort runs every time anyway, with extra `useMemo` ceremony for zero benefit.
 
-We provide templates to help you share your solution once you've submitted it on the platform. Please do edit them and include specific questions when you're looking for feedback.
+```ts
+// Useless useMemo — dependency is a new reference every render
+const rankedPlayers = useMemo(
+  () => [...unRankedScore].sort((a, b) => b.score - a.score),
+  [unRankedScore], // ← new array reference every render
+);
 
-The more specific you are with your questions the more likely it is that another member of the community will give you feedback.
+// Honest version — calculate only when the result is consumed
+const rankedPlayers =
+  phase === "game-over"
+    ? [...unRankedScore].sort((a, b) => b.score - a.score)
+    : [];
+```
 
-## Got feedback for us?
+The deeper lesson: `useMemo` is the wrong tool when the input itself is unstable. A conditional calculation — only when the result will actually be read — is both cheaper and more honest about intent. The audit's own proposed fix was to correct the dependency; the conditional approach beat it.
 
-We love receiving feedback! We're always looking to improve our challenges and our platform. So if you have anything you'd like to mention, please email hi[at]frontendmentor[dot]io.
+### Continued development
 
-**Have fun building!** 🚀
+- **`useMemo` reflex** — adding it before checking whether its dependencies are even stable across renders. The audit caught one that ran on every render anyway. The next reflex to install is pausing on every `useMemo` to ask: is this dependency a reference that survives renders, or am I memoising into the void?
+- **`set` Zustand syntax — `set(state => { ... return {...} })` vs `set(state => ({...}))`** — the distinction between an arrow function with a block body (needs an explicit `return`) and an arrow function returning a parenthesised object literal is still a recurring stumble inside multi-line Zustand actions.
+- **Variable capture vs `get()` in real time** — inside `setTimeout` or async callbacks, a destructured value from `get()` is captured at call time. Reading the _live_ state at the moment the callback fires requires calling `get()` again from inside the callback. Subtle, and the bug is invisible until the state has changed between schedule and execution.
+- **`<dialog>` mounted vs visible** — `<dialog>` toggled via `showModal()` / `close()` only controls visibility; the React component is always mounted, and any JS inside it keeps running. This generalises to tooltips, drawers, popovers — anything where "closed" doesn't mean "unmounted".
+
+## Author
+
+- Frontend Mentor - [@TomSif](https://www.frontendmentor.io/profile/TomSif)
+- GitHub - [@TomSif](https://github.com/TomSif)
+
+## Acknowledgments
+
+This project was built with AI-assisted mentoring (Claude). The approach: I code by hand, Claude acts as a Socratic mentor — asking questions, explaining concepts, reviewing my reasoning. Architectural decisions (Zustand vs `useReducer`, what belongs in the store, when to derive vs store) stayed mine.
+
+Specific AI contributions are documented transparently in my [progression log](./progression.md):
+
+- **Written by Claude:** the external audit document (3 blockers + 7 code quality items + minor fixes) used as the starting point for refactoring sessions; the "why classes only" explanation for `ErrorBoundary` mechanics
+- **My initiative:** the `useMemo` conditional-calculation fix (better than the audit's own proposed dependency correction); autonomous extraction of `Tile`, `Header`, `FooterSolo`, `FooterMulti` from a 260-line `GameBoard` (down to 156); deliberate choice of native `<dialog>` for free a11y over a custom modal; diagnosing the timer-survives-restart bug from `isRunning` not resetting; the responsive multi-player cards in pure CSS (no `useWindowSize`)
+- **Collaborative:** the `checkMatch` race condition walked through step by step; the source-of-truth refactor removing `isFlipped` from the tile type; the `persist` middleware syntax (extracted into a `storeConfig: StateCreator<GameStore>` variable for readability); the focus-trap diagnosis on modals (`flex` overriding native `display:none`)
