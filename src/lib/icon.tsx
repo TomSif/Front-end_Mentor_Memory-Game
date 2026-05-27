@@ -20,7 +20,7 @@ import {
   Sword,
 } from "lucide-react";
 
-export const ICON_MAP: Record<string, LucideIcon> = {
+export const ICON_MAP: Record<string, LucideIcon | undefined> = {
   bird: Bird,
   cherry: Cherry,
   coffee: Coffee,

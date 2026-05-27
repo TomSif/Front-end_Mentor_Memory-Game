@@ -35,9 +35,9 @@ function Tile({ onFlip, value, id, flippedIds, isMatched }: TileProps) {
           >
             {typeof value === "number" ? (
               value
-            ) : (
+            ) : Icon ? (
               <Icon size={48} strokeWidth={2} />
-            )}
+            ) : null}
           </span>
         ) : (
           <span className="hover:bg-blue-350! h-full w-full rounded-full bg-blue-800 transition-[background-color] duration-50 ease-in"></span>
