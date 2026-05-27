@@ -2,7 +2,7 @@ import { cn } from "../lib/cn";
 import { ICON_MAP } from "../lib/icon";
 
 interface TileProps {
-  onFlip: (id: string) => void;
+  onFlip: () => void;
   value: number | string;
   id: string;
   flippedIds: string[];
@@ -16,7 +16,7 @@ function Tile({ onFlip, value, id, flippedIds, isMatched }: TileProps) {
       <button
         type="button"
         disabled={isMatched || flippedIds.length >= 2}
-        onClick={() => onFlip(id)}
+        onClick={onFlip}
         className="flex aspect-square h-full w-full cursor-pointer rounded-full outline-blue-800 focus:outline-offset-6 disabled:pointer-events-none"
         aria-label={
           isMatched
