@@ -22,6 +22,7 @@ export interface GameStore {
   stopTimer: () => void;
   resumeTimer: () => void;
   resetGame: () => void;
+  timeoutId: ReturnType<typeof setTimeout> | null;
 }
 
 const storeConfig: StateCreator<GameStore> = (set, get) => ({
@@ -34,15 +35,22 @@ const storeConfig: StateCreator<GameStore> = (set, get) => ({
   flippedIds: [],
   tiles: [],
   gameConfig: null,
+  timeoutId: null,
   tick: () => set((state) => ({ timeElapsed: state.timeElapsed + 1 })),
   stopTimer: () => set({ isRunning: false }),
   resumeTimer: () => set({ isRunning: true }),
-  resetGame: () => set({ phase: "setup", tiles: [] }),
+  resetGame: () => {
+    const timeId = get().timeoutId;
+    if (timeId) clearTimeout(timeId);
+    set({ phase: "setup", tiles: [] });
+  },
   setConfig: (config: GameConfig) => set({ gameConfig: config }),
   startGame: () => {
+    const timeId = get().timeoutId;
     const config = get().gameConfig;
     if (!config) return;
     const initialScores = Array.from({ length: config.players }, () => 0);
+    if (timeId) clearTimeout(timeId);
     set({
       phase: "playing",
       tiles: generateBoard(config),
@@ -97,13 +105,14 @@ const storeConfig: StateCreator<GameStore> = (set, get) => ({
         };
       });
     } else {
-      setTimeout(() => {
+      const timeoutId = setTimeout(() => {
         set((state) => ({
           flippedIds: [],
           currentPlayerIndex:
             (state.currentPlayerIndex + 1) % (get().gameConfig?.players ?? 1),
         }));
       }, FLIP_BACK_DELAY_MS);
+      set({ timeoutId });
     }
   },
 });
