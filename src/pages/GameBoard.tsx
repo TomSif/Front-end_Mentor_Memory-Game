@@ -4,7 +4,7 @@ import { useGameStore } from "../store/gameStore";
 import { cn } from "../lib/cn";
 import GameOverModal from "../components/GameOverModal";
 import MenuModal from "../components/MenuModal";
-import { ICON_MAP } from "../lib/icon";
+import Tile from "../components/Tile";
 
 const GameBoard = () => {
   const [isGameOverOpen, setIsGameOverOpen] = useState(false);
@@ -109,40 +109,15 @@ const GameBoard = () => {
         >
           {tiles &&
             tiles.map((tile) => {
-              const Icon = ICON_MAP[tile.value as string];
               return (
-                <li className="flex h-full w-full" key={tile.id}>
-                  <button
-                    type="button"
-                    disabled={tile.isMatched || flippedIds.length >= 2}
-                    onClick={() => flipTile(tile.id)}
-                    className="flex aspect-square h-full w-full cursor-pointer rounded-full outline-blue-800 focus:outline-offset-6 disabled:pointer-events-none"
-                    aria-label={
-                      tile.isMatched
-                        ? `Matched, ${tile.value}`
-                        : flippedIds.includes(tile.id)
-                          ? `Flipped, ${tile.value}`
-                          : "Hidden Tile"
-                    }
-                  >
-                    {tile.isMatched || flippedIds.includes(tile.id) ? (
-                      <span
-                        className={cn(
-                          "text-grey-50 flex h-full w-full items-center justify-center rounded-full transition-[background-color] duration-50 ease-in",
-                          tile.isMatched ? "bg-orange-400" : "bg-blue-300",
-                        )}
-                      >
-                        {typeof tile.value === "number" ? (
-                          tile.value
-                        ) : (
-                          <Icon size={48} strokeWidth={2} />
-                        )}
-                      </span>
-                    ) : (
-                      <span className="hover:bg-blue-350! h-full w-full rounded-full bg-blue-800 transition-[background-color] duration-50 ease-in"></span>
-                    )}
-                  </button>
-                </li>
+                <Tile
+                  key={tile.id}
+                  onFlip={() => flipTile(tile.id)}
+                  value={tile.value}
+                  id={tile.id}
+                  flippedIds={flippedIds}
+                  isMatched={tile.isMatched}
+                />
               );
             })}
         </ul>
