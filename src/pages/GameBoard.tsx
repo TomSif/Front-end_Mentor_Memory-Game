@@ -102,11 +102,11 @@ const GameBoard = () => {
           })}
         </ul>
       </main>
-      <footer className="mx-auto mt-25 w-full max-w-135 md:mt-26.5">
+      <footer className="mx-auto mt-25 flex w-full flex-col items-center md:mt-26.5 md:max-w-279">
         {config?.players === 1 ? (
           <FooterSolo minutes={minutes} seconds={seconds} moves={moves} />
         ) : (
-          <ul className="flex gap-6 md:gap-2">
+          <ul className="mx-auto flex w-full justify-center gap-6 md:gap-2">
             {unRankedScore.map((player) => {
               const isCurrentPlayer = player.player === currentPlayerIndex + 1;
               return (
