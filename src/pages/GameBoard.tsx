@@ -7,6 +7,7 @@ import MenuModal from "../components/MenuModal";
 import Tile from "../components/Tile";
 import Header from "../components/Header";
 import FooterSolo from "../components/FooterSolo";
+import FooterMulti from "../components/FooterMulti";
 
 const GameBoard = () => {
   const [isGameOverOpen, setIsGameOverOpen] = useState(false);
@@ -105,49 +106,12 @@ const GameBoard = () => {
             {unRankedScore.map((player) => {
               const isCurrentPlayer = player.player === currentPlayerIndex + 1;
               return (
-                <li
+                <FooterMulti
                   key={player.player}
-                  className={cn(
-                    "maw-w-64 relative flex flex-1 flex-col items-center justify-evenly gap-2 rounded-md px-3 py-2.5 md:items-start md:px-4",
-                    isCurrentPlayer ? "bg-orange-400" : "bg-blue-100",
-                  )}
-                >
-                  {isCurrentPlayer && (
-                    <span className="absolute -top-2 left-1/2 aspect-square w-4 -translate-x-1/2 rotate-45 bg-orange-400"></span>
-                  )}
-                  <span
-                    className={cn(
-                      "text-preset-11! sm:hidden",
-                      isCurrentPlayer ? "text-white" : "text-blue-400",
-                    )}
-                  >
-                    P{player.player}
-                  </span>
-                  <span
-                    className={cn(
-                      "text-preset-11! hidden sm:block",
-                      isCurrentPlayer ? "text-white" : "text-blue-400",
-                    )}
-                  >
-                    Player {player.player}
-                  </span>
-                  <span
-                    className={cn(
-                      "text-preset-7! text-center",
-                      isCurrentPlayer ? "text-white" : "text-blue-800",
-                    )}
-                  >
-                    {player.score}
-                  </span>
-                  <span
-                    className={cn(
-                      "text-preset-13! absolute -bottom-10 left-1/2 hidden w-full -translate-x-1/2 text-center font-bold text-blue-950",
-                      isCurrentPlayer ? "sm:block" : "",
-                    )}
-                  >
-                    CURRENT TURN
-                  </span>
-                </li>
+                  isCurrentPlayer={isCurrentPlayer}
+                  player={player.player}
+                  score={player.score}
+                />
               );
             })}
           </ul>
