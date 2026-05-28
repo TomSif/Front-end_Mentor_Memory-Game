@@ -12,7 +12,7 @@ function App() {
           path="/game"
           element={
             <ErrorBoundary
-              fallback={<p>Une erreur est survenue. Rechargez la page.</p>}
+              fallback={<p>An error occurred. Please reload the page.</p>}
             >
               <GameBoard />
             </ErrorBoundary>

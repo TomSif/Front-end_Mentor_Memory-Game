@@ -32,7 +32,7 @@ function MenuModal({ isOpen, onResume, onRestart, onNewGame }: MenuModalProps) {
     >
       <div className="flex h-full items-center justify-center">
         <h2 id="menuTitle" className="sr-only">
-          Menu Modale
+          Game Menu
         </h2>
         <div className="bg-grey-50 flex w-82 flex-col items-center gap-6 rounded-xl p-6 opacity-100">
           <button
