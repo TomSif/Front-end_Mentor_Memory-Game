@@ -1,3 +1,5 @@
+import { formatTime } from "../lib/formatTime";
+
 interface FooterSoloProps {
   minutes: number;
   seconds: number;
@@ -12,9 +14,7 @@ function FooterSolo({ minutes, seconds, moves }: FooterSoloProps) {
           Time
         </span>
         <span className="text-preset-7 md:text-preset-5 text-blue-800">
-          {`${minutes.toString().padStart(2, "0")}:${seconds
-            .toString()
-            .padStart(2, "0")}`}
+          {formatTime(minutes, seconds)}
         </span>
       </li>
       <li className="flex flex-1 flex-col justify-center gap-1 rounded-lg bg-blue-100 py-3 text-center md:flex-row md:items-center md:justify-around">

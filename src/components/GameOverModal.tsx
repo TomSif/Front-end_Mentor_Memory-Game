@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import { cn } from "../lib/cn";
+import { formatTime } from "../lib/formatTime";
 
 type GameOverModalProps = {
   isOpen: boolean;
@@ -89,9 +90,7 @@ function GameOverModal({
                     Time Elapsed
                   </span>
                   <span className="text-preset-8 text-right text-blue-800">
-                    {`${minutes.toString().padStart(2, "0")}:${seconds
-                      .toString()
-                      .padStart(2, "0")}`}
+                    {formatTime(minutes, seconds)}
                   </span>
                 </li>
                 <li className="flex w-full items-center justify-between rounded-md bg-blue-100 px-4 py-3">
