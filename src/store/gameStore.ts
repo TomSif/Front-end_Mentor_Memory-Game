@@ -42,7 +42,7 @@ const storeConfig: StateCreator<GameStore> = (set, get) => ({
   resetGame: () => {
     const timeId = get().timeoutId;
     if (timeId) clearTimeout(timeId);
-    set({ phase: "setup", tiles: [] });
+    set({ phase: "setup", tiles: [], timeoutId: null });
   },
   setConfig: (config: GameConfig) => set({ gameConfig: config }),
   startGame: () => {
