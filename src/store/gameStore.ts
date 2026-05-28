@@ -79,8 +79,9 @@ const storeConfig: StateCreator<GameStore> = (set, get) => ({
     const { flippedIds, tiles } = get();
     if (flippedIds.length !== 2) return;
     const [id1, id2] = flippedIds;
-    const tile1 = tiles.find((t) => t.id === id1)!;
-    const tile2 = tiles.find((t) => t.id === id2)!;
+    const tile1 = tiles.find((t) => t.id === id1);
+    const tile2 = tiles.find((t) => t.id === id2);
+    if (!tile1 || !tile2) return;
     set((state) => ({ moves: state.moves + 1 }));
     if (tile1.value === tile2.value) {
       set((state) => {
