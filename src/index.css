@@ -38,11 +38,12 @@
 
 /* -----------------------------------------------------------------------------
    Text Presets — déclarés en @utility (Tailwind v4)
+   Fluid type: min 375px → max 1440px
 ----------------------------------------------------------------------------- */
 @utility text-preset-1 {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 56px;
+  font-size: clamp(2rem, 2.25vw + 1.47rem, 3.5rem);
   line-height: 1.25;
   letter-spacing: 0;
 }
@@ -50,7 +51,7 @@
 @utility text-preset-2 {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 48px;
+  font-size: clamp(1.75rem, 1.88vw + 1.31rem, 3rem);
   line-height: 1.25;
   letter-spacing: 0;
 }
@@ -58,7 +59,7 @@
 @utility text-preset-3 {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 44px;
+  font-size: clamp(1.625rem, 1.69vw + 1.23rem, 2.75rem);
   line-height: 1.25;
   letter-spacing: 0;
 }
@@ -66,7 +67,7 @@
 @utility text-preset-4 {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 40px;
+  font-size: clamp(1.5rem, 1.5vw + 1.15rem, 2.5rem);
   line-height: 1.25;
   letter-spacing: 0;
 }
@@ -74,7 +75,7 @@
 @utility text-preset-5 {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 32px;
+  font-size: clamp(1.25rem, 1.13vw + 0.99rem, 2rem);
   line-height: 1.25;
   letter-spacing: 0;
 }
@@ -82,7 +83,7 @@
 @utility text-preset-6 {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 26px;
+  font-size: clamp(1.125rem, 0.75vw + 0.95rem, 1.625rem);
   line-height: 1.25;
   letter-spacing: 0;
 }
@@ -90,7 +91,7 @@
 @utility text-preset-7 {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 24px;
+  font-size: clamp(1rem, 0.75vw + 0.82rem, 1.5rem);
   line-height: 1.25;
   letter-spacing: 0;
 }
@@ -98,7 +99,7 @@
 @utility text-preset-8 {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 20px;
+  font-size: clamp(0.875rem, 0.56vw + 0.74rem, 1.25rem);
   line-height: 1.25;
   letter-spacing: 0;
 }
@@ -106,7 +107,7 @@
 @utility text-preset-9 {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 18px;
+  font-size: clamp(0.8125rem, 0.47vw + 0.70rem, 1.125rem);
   line-height: 1.25;
   letter-spacing: 0;
 }
@@ -114,7 +115,7 @@
 @utility text-preset-10 {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 16px;
+  font-size: clamp(0.875rem, 0.19vw + 0.83rem, 1rem);
   line-height: 1.25;
   letter-spacing: 0;
 }
@@ -122,7 +123,7 @@
 @utility text-preset-11 {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 15px;
+  font-size: clamp(0.8125rem, 0.19vw + 0.77rem, 0.9375rem);
   line-height: 1.25;
   letter-spacing: 0;
 }
@@ -130,7 +131,7 @@
 @utility text-preset-12 {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 14px;
+  font-size: clamp(0.75rem, 0.19vw + 0.71rem, 0.875rem);
   line-height: 1.25;
   letter-spacing: 0;
 }
@@ -138,7 +139,7 @@
 @utility text-preset-13 {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 13px;
+  font-size: clamp(0.6875rem, 0.19vw + 0.64rem, 0.8125rem);
   line-height: 1.25;
-  letter-spacing: 5px;
+  letter-spacing: clamp(0.1875rem, 0.19vw + 0.14rem, 0.3125rem);
 }
