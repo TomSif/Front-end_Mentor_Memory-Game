@@ -4,6 +4,8 @@ interface HeaderProps {
   onStart: () => void;
   onReset: () => void;
   onNavigate: () => void;
+  isMenuOpen: boolean;
+  menuButtonRef: React.RefObject<HTMLButtonElement | null>;
 }
 
 function Header({
@@ -12,11 +14,16 @@ function Header({
   onStart,
   onReset,
   onNavigate,
+  isMenuOpen,
+  menuButtonRef,
 }: HeaderProps) {
   return (
     <header className="mb-18 flex w-full items-center justify-between">
       <h1 className="text-preset-7 md:text-preset-4 text-blue-950">memory</h1>
       <button
+        ref={menuButtonRef}
+        aria-expanded={isMenuOpen}
+        aria-controls="menuModal"
         onClick={() => {
           onMenuOpen();
           onStop();

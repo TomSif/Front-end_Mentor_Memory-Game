@@ -29,7 +29,10 @@ const GameBoard = () => {
   const phase = useGameStore((state) => state.phase);
   const currentPlayerIndex = useGameStore((state) => state.currentPlayerIndex);
 
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
+
   const navigate = useNavigate();
+
   const minutes = Math.floor(timeElapsed / 60);
   const seconds = timeElapsed % 60;
 
@@ -42,7 +45,9 @@ const GameBoard = () => {
     phase === "game-over"
       ? [...unRankedScore].sort((a, b) => b.score - a.score)
       : [];
+
   const hasInitialized = useRef(false);
+
   useEffect(() => {
     if (hasInitialized.current) return;
     hasInitialized.current = true;
@@ -75,6 +80,8 @@ const GameBoard = () => {
         onStart={() => startGame()}
         onReset={() => resetGame()}
         onNavigate={() => navigate("/")}
+        isMenuOpen={isMenuOpen}
+        menuButtonRef={menuButtonRef}
       />
 
       <main className="w-full md:px-15">
@@ -125,10 +132,12 @@ const GameBoard = () => {
         onResume={() => {
           setIsMenuOpen(false);
           resumeTimer();
+          menuButtonRef.current?.focus();
         }}
         onRestart={() => {
           setIsMenuOpen(false);
           startGame();
+          menuButtonRef.current?.focus();
         }}
         onNewGame={() => {
           resetGame();
