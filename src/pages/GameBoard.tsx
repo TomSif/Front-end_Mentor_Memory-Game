@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useNavigate } from "react-router";
 import { useGameStore } from "../store/gameStore";
 import { cn } from "../lib/cn";
@@ -42,18 +42,17 @@ const GameBoard = () => {
     phase === "game-over"
       ? [...unRankedScore].sort((a, b) => b.score - a.score)
       : [];
-
+  const hasInitialized = useRef(false);
   useEffect(() => {
+    if (hasInitialized.current) return;
+    hasInitialized.current = true;
     if (!config) {
       navigate("/");
       return;
     }
-    if (phase === "playing" && tiles.length > 0) {
-      // restored from localStorage — timer starts on first click
-      return;
-    }
+    if (phase !== "setup") return;
     startGame();
-  }, []);
+  }, [config, phase, navigate, startGame]);
 
   useEffect(() => {
     if (!isRunning) return;
