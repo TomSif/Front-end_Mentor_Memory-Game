@@ -1,5 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import { useNavigate } from "react-router";
+import { useShallow } from "zustand/shallow";
 import { useGameStore } from "../store/gameStore";
 import { cn } from "../lib/cn";
 import GameOverModal from "../components/GameOverModal";
@@ -13,21 +14,41 @@ const GameBoard = () => {
   const [isGameOverOpen, setIsGameOverOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const startGame = useGameStore((state) => state.startGame);
-  const stopTimer = useGameStore((state) => state.stopTimer);
-  const resumeTimer = useGameStore((state) => state.resumeTimer);
-  const resetGame = useGameStore((state) => state.resetGame);
-  const tick = useGameStore((state) => state.tick);
-  const flipTile = useGameStore((state) => state.flipTile);
-  const config = useGameStore((state) => state.gameConfig);
-  const tiles = useGameStore((state) => state.tiles);
-  const moves = useGameStore((state) => state.moves);
-  const score = useGameStore((state) => state.scores);
-  const isRunning = useGameStore((state) => state.isRunning);
-  const timeElapsed = useGameStore((state) => state.timeElapsed);
-  const flippedIds = useGameStore((state) => state.flippedIds);
-  const phase = useGameStore((state) => state.phase);
-  const currentPlayerIndex = useGameStore((state) => state.currentPlayerIndex);
+  const { startGame, stopTimer, resumeTimer, resetGame, tick, flipTile } =
+    useGameStore(
+      useShallow((state) => ({
+        startGame: state.startGame,
+        stopTimer: state.stopTimer,
+        resumeTimer: state.resumeTimer,
+        resetGame: state.resetGame,
+        tick: state.tick,
+        flipTile: state.flipTile,
+      })),
+    );
+
+  const {
+    config,
+    tiles,
+    moves,
+    score,
+    isRunning,
+    timeElapsed,
+    flippedIds,
+    phase,
+    currentPlayerIndex,
+  } = useGameStore(
+    useShallow((state) => ({
+      config: state.gameConfig,
+      tiles: state.tiles,
+      moves: state.moves,
+      score: state.scores,
+      isRunning: state.isRunning,
+      timeElapsed: state.timeElapsed,
+      flippedIds: state.flippedIds,
+      phase: state.phase,
+      currentPlayerIndex: state.currentPlayerIndex,
+    })),
+  );
 
   const menuButtonRef = useRef<HTMLButtonElement>(null);
 
@@ -65,7 +86,7 @@ const GameBoard = () => {
       tick();
     }, 1000);
     return () => clearInterval(interval);
-  }, [isRunning]);
+  }, [isRunning, tick]);
 
   useEffect(() => {
     if (phase !== "game-over") return;
