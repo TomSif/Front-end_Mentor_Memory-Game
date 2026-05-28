@@ -1,5 +1,5 @@
 import { cn } from "../lib/cn";
-import { ICON_MAP } from "../lib/icon";
+import { ICON_MAP } from "../lib/iconUtils";
 
 interface TileProps {
   onFlip: () => void;

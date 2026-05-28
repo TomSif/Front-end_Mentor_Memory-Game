@@ -1,5 +1,5 @@
 import { Tile } from "../types/game";
-import { ICON_NAMES } from "./icon";
+import { ICON_NAMES } from "./iconUtils";
 
 export interface GenerateBoardProps {
   theme: "numbers" | "icons";
