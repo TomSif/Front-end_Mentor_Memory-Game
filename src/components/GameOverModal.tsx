@@ -25,6 +25,8 @@ function GameOverModal({
   rankedPlayers,
 }: GameOverModalProps) {
   const dialogRef = useRef<HTMLDialogElement>(null);
+  const topPlayer = rankedPlayers[0];
+  if (!topPlayer) return;
   const winners = rankedPlayers.filter(
     (winner) => winner.score === rankedPlayers[0].score,
   );
