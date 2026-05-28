@@ -132,8 +132,17 @@ export const useGameStore = create<GameStore>()(
       }
       return saveState as GameStore;
     },
-    // Persisted: tiles, scores, timeElapsed, moves, phase, gameConfig, currentPlayerIndex
     // isRunning forced to false — never restore an active timer
-    partialize: (state) => ({ ...state, isRunning: false }),
+    partialize: (state) =>
+      ({
+        isRunning: false,
+        tiles: state.tiles,
+        scores: state.scores,
+        timeElapsed: state.timeElapsed,
+        moves: state.moves,
+        phase: state.phase,
+        gameConfig: state.gameConfig,
+        currentPlayerIndex: state.currentPlayerIndex,
+      }) as unknown as GameStore,
   }),
 );
