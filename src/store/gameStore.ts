@@ -68,10 +68,9 @@ const storeConfig: StateCreator<GameStore> = (set, get) => ({
     if (!get().isRunning) set({ isRunning: true });
     if (get().flippedIds.length >= 2) return;
     if (get().flippedIds.includes(id)) return;
-    set((state) => ({
-      flippedIds: [...state.flippedIds, id],
-    }));
-    if (get().flippedIds.length === 2) {
+    const flippedIdsState = [...get().flippedIds, id];
+    set({ flippedIds: flippedIdsState });
+    if (flippedIdsState.length === 2) {
       get().checkMatch();
     }
   },
