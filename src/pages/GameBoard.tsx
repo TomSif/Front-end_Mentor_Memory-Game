@@ -85,7 +85,7 @@ const GameBoard = () => {
             config?.gridSize === 4 &&
               "text-preset-4 sm:text-preset-1 max-w-136 grid-cols-4 gap-3",
             config?.gridSize === 6 &&
-              "text-preset-7 sm:text-preset-3 max-w-143 grid-cols-6 gap-2 gap-x-2",
+              "text-preset-7 sm:text-preset-3 max-w-134 grid-cols-6 gap-2 gap-x-2",
           )}
         >
           {tiles.map((tile) => {
@@ -102,7 +102,7 @@ const GameBoard = () => {
           })}
         </ul>
       </main>
-      <footer className="mx-auto mt-25 flex w-full flex-col items-center md:mt-26.5 md:max-w-279">
+      <footer className="mx-auto mt-22 flex w-full flex-col items-center md:max-w-279">
         {config?.players === 1 ? (
           <FooterSolo minutes={minutes} seconds={seconds} moves={moves} />
         ) : (

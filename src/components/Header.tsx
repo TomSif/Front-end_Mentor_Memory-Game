@@ -14,7 +14,7 @@ function Header({
   onNavigate,
 }: HeaderProps) {
   return (
-    <header className="mb-20 flex items-center justify-between md:pb-21.5">
+    <header className="mb-18 flex items-center justify-between">
       <h1 className="text-preset-7 md:text-preset-4 text-blue-950">memory</h1>
       <button
         onClick={() => {
