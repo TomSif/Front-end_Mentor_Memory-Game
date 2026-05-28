@@ -69,7 +69,7 @@ const GameBoard = () => {
   }, [phase]);
 
   return (
-    <div className="mx-auto min-h-dvh max-w-277 bg-white p-6 sm:p-10 md:p-16.5">
+    <div className="mx-auto min-h-dvh w-full max-w-277 bg-white p-6 sm:p-10 md:py-14">
       <Header
         onMenuOpen={() => setIsMenuOpen(true)}
         onStop={() => stopTimer()}
@@ -102,7 +102,7 @@ const GameBoard = () => {
           })}
         </ul>
       </main>
-      <footer className="mx-auto mt-22 flex w-full flex-col items-center md:max-w-279">
+      <footer className="mx-auto mt-21 flex w-full flex-col items-center md:max-w-279">
         {config?.players === 1 ? (
           <FooterSolo minutes={minutes} seconds={seconds} moves={moves} />
         ) : (
